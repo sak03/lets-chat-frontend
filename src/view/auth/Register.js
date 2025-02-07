@@ -79,7 +79,7 @@ const Register = () => {
             <form onSubmit={registerFormik.handleSubmit}>
 
                 <div style={{ display: "flex", marginTop: "20px" }}>
-                    <input type="text" id='fName' value={registerFormik.values.fname}
+                    <input type="text" id='fName' value={registerFormik.values.fName}
                         onChange={registerFormik.handleChange}
                         placeholder='First Name'
                         style={{ marginRight: "20px" }}

@@ -63,20 +63,6 @@ const Login = () => {
   return (
     <div className='p-5'>
       <form onSubmit={loginFormik.handleSubmit}>
-
-        {/* <div style={{ display: "flex", marginTop: "20px" }}>
-          <input type="text" id='fName' value={loginFormik.values.fname}
-            onChange={loginFormik.handleChange}
-            placeholder='First Name'
-            style={{ marginRight: "20px" }}
-            className='form-control'
-          />
-          <input type="text" id='lName' value={loginFormik.values.lName}
-            onChange={loginFormik.handleChange}
-            placeholder='First Name'
-            className='form-control'
-          />
-        </div> */}
         <div style={{ display: "flex", marginTop: "20px" }}>
           <input type="text" id='email' value={loginFormik.values.email}
             onChange={loginFormik.handleChange}
@@ -95,14 +81,13 @@ const Login = () => {
         <div style={{ display: "flex", marginTop: "20px" }}>
           <button type='button' style={{ marginRight: "20px" }}
             onClick={() => {
-              // setViewMode(0)
-              // setEditMode(0)
               loginFormik.resetForm();
             }}
             class="btn btn-secondary"
           >Cancel</button>
           <button type='submit' class="btn btn-primary">Save</button>
         </div>
+        <div className='pointer mt-3' onClick={() => navigate('/register')}>Don't have an account?</div>
       </form>
     </div>
   )

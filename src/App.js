@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
+import "./style/globalStyle.css"
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import ProtectedRoutes from "./view/auth/ProtectedRoutes";
 
@@ -10,8 +11,6 @@ const Users = React.lazy(()=> import('./view/pages/Users'))
 
 
 const App = () => {
-  const [userId, setUserId] = useState("USER_ID_HERE");
-  const [receiverId, setReceiverId] = useState("RECEIVER_ID_HERE");
 
   // useEffect(() => {
   //   socket.emit("join", userId);
