@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
-import { FaCircle, FaUserAlt } from "react-icons/fa";
+import { FaCircle, FaRegUserCircle, FaUserAlt } from "react-icons/fa";
 
 const Users = () => {
     const navigate = useNavigate();
@@ -68,15 +68,16 @@ const Users = () => {
             <div>
                 {allUsers && allUsers?.map((item) => {
                     return (
-                        <div 
-                        key={item._id} 
-                        className='d-flex justify-content-between pointer p-3 shadow rounded mt-3'
-                        onClick={()=>{
-                            localStorage.setItem('selectedUser', JSON.stringify(item));
-                            navigate('/chating')
-                        }}
+                        <div
+                            key={item._id}
+                            className='d-flex justify-content-between pointer p-3 shadow rounded mt-3'
+                            onClick={() => {
+                                localStorage.setItem('selectedUser', JSON.stringify(item));
+                                navigate('/chating')
+                            }}
                         >
-                            <span><FaCircle className={item.isOnline ? 'text-success' : 'text-danger'} /> {item.name}</span>
+                            <span>{item?.profilePic ? <img src='' alt='user profile' width={20} className='rounded-circle' /> : <FaRegUserCircle />}</span>
+                            <span><FaCircle style={{fontSize:"5px"}} className={item.isOnline ? 'text-success mt-2' : 'text-danger mt-2'} /> {item.name}</span>
                             <span>{item.email}</span>
                             <span>{item.createdAt}</span>
                         </div>
