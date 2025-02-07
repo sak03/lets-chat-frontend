@@ -1,9 +1,11 @@
-import { useEffect, useState } from 'react';
+
+import React from 'react';
 import axios from 'axios'
 import { useFormik } from 'formik'
+import { useNavigate } from 'react-router-dom';
 
 const Register = () => {
-
+    const navigate = useNavigate()
     const registerFormik = useFormik({
         initialValues: {
             fName: "",
@@ -62,9 +64,8 @@ const Register = () => {
                 })
             .then((res) => {
                 const dt = res.data;
-                console.log("Register: ", dt)
-                // getUsers();
-                // setViewMode(0)
+                // console.log("Register: ", dt)
+                navigate('/')
                 console.log("User created successfully");
             })
             .catch((err) => {
@@ -99,7 +100,7 @@ const Register = () => {
                     />
                     <input type="text" id='password' value={registerFormik.values.password}
                         onChange={registerFormik.handleChange}
-                        placeholder='Mobile'
+                        placeholder='Password'
                         maxLength={10}
                         className='form-control'
                     />

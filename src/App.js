@@ -1,18 +1,17 @@
 import React, { useEffect, useState } from "react";
-import { io } from "socket.io-client";
-import Register from "./view/auth/Register";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import ProtectedRoutes from "./view/auth/ProtectedRoutes";
 
+const Login = React.lazy(() => import('./view/auth/Login'))
+const Register = React.lazy(() => import('./view/auth/Register'))
+const ChatingUI = React.lazy(()=> import('./view/pages/Chating'))
+const Users = React.lazy(()=> import('./view/pages/Users'))
 
-const socket = io("http://localhost:5000");
 
 const App = () => {
   const [userId, setUserId] = useState("USER_ID_HERE");
   const [receiverId, setReceiverId] = useState("RECEIVER_ID_HERE");
-  const [message, setMessage] = useState("");
-  const [messages, setMessages] = useState([]);
-
-  const [viewMode, setViewMode] = useState(0)
 
   // useEffect(() => {
   //   socket.emit("join", userId);
@@ -41,29 +40,28 @@ const App = () => {
   // };
 
 
-  const sendMessage = () => {
-    if (message.trim()) {
-      socket.emit("sendMessage", { senderId: userId, receiverId, message });
-      setMessage("");
-    }
-  };
+  // const sendMessage = () => {
+  //   if (message.trim()) {
+  //     socket.emit("sendMessage", { senderId: userId, receiverId, message });
+  //     setMessage("");
+  //   }
+  // };
 
   return (
+
     <div>
-      <h2>Chat App</h2>
-      <Register />
-      {/* <div>
-        {messages.map((msg, index) => (
-          <p key={index}><strong>{msg.senderId}</strong>: {msg.message}</p>
-        ))}
-      </div>
-      <input
-        type="text"
-        value={message}
-        onChange={(e) => setMessage(e.target.value)}
-        placeholder="Type a message..."
-      />
-      <button onClick={sendMessage}>Send</button> */}
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          {/* Protected Route for Authenticated Users */}
+          <Route element={<ProtectedRoutes />}>
+            <Route path="/users-list" element={<Users />} />
+            <Route path="/chating" element={<ChatingUI />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
+      
     </div>
   );
 };
