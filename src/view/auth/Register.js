@@ -74,7 +74,8 @@ const Register = () => {
 
 
     return (
-        <div className='p-5'>
+        <div className='body-divout'>
+            <div className='body-divin'>
             <div className='my-5 d-flex flex-column justify-content-center align-items-center text-center'>
                 <h3>Be The Part</h3>
                 <small>of</small>
@@ -82,31 +83,31 @@ const Register = () => {
             </div>
             <form onSubmit={registerFormik.handleSubmit}>
 
-                <div style={{ display: "flex", marginTop: "20px" }}>
+                <div style={{ marginTop: "20px" }}>
                     <input type="text" id='fName' value={registerFormik.values.fName}
                         onChange={registerFormik.handleChange}
                         placeholder='First Name'
                         style={{ marginRight: "20px" }}
-                        className='form-control'
+                        className='form-control mt-3'
                     />
                     <input type="text" id='lName' value={registerFormik.values.lName}
                         onChange={registerFormik.handleChange}
                         placeholder='First Name'
-                        className='form-control'
+                        className='form-control mt-3'
                     />
                 </div>
-                <div style={{ display: "flex", marginTop: "20px" }}>
+                <div style={{ marginTop: "20px" }}>
                     <input type="text" id='email' value={registerFormik.values.email}
                         onChange={registerFormik.handleChange}
                         placeholder='Email'
                         style={{ marginRight: "20px" }}
-                        className='form-control'
+                        className='form-control mt-3'
                     />
                     <input type="text" id='password' value={registerFormik.values.password}
                         onChange={registerFormik.handleChange}
                         placeholder='Password'
                         maxLength={10}
-                        className='form-control'
+                        className='form-control mt-3'
                     />
                 </div>
                 <div style={{ display: "flex", marginTop: "20px" }}>
@@ -115,11 +116,12 @@ const Register = () => {
                             navigate('/')
                             registerFormik.resetForm();
                         }}
-                        class="btn btn-secondary"
+                        className="btn btn-secondary"
                     >Cancel</button>
-                    <button type='submit' class="btn btn-primary">Save</button>
+                    <button type='submit' className="btn btn-primary">Save</button>
                 </div>
             </form>
+        </div>
         </div>
     )
 }

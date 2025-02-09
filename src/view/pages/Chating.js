@@ -59,12 +59,13 @@ const Chating = () => {
     };
 
     return (
-        <div className='mt-3 p-5'>
-            <div className='d-flex justify-content-between border-bottom bg-white px-3 py-2' style={{ position: "fixed", top: "3px", width: "90%" }}>
+        <div className='body-divout mt-3'>
+            <div className='body-divin'>
+            <div className='d-flex justify-content-between border-bottom bg-white' style={{ position: "fixed", top: "3px", width: "70%" }}>
                 <h3 className='text-info'>Lets Chat</h3>
                 <h5><FaUserAlt /> {loginInfo?.name}</h5>
             </div>
-            <div className='mt-3 d-flex bh-white justify-content-between shadow py-1 px-3' style={{ position: "sticky", top: "3.65rem", width: "100%" }}>
+            <div className='mt-3 d-flex bh-white justify-content-between shadow py-1 px-3' style={{ position: "sticky", top: "2.5rem", width: "100%" }}>
                 <div className='d-flex'>
                     <h4>{selectedUserInfo?.name}</h4>
                     <small className={selectedUserInfo?.isOnline ? "text-success mx-3 my-2" : "text-danger mx-3 my-2"}>{selectedUserInfo?.isOnline ? "Active" : "Inactive"}</small>
@@ -88,6 +89,7 @@ const Chating = () => {
                 />
                 <button className='btn btn-primary' onClick={sendMessage}> <FaTelegramPlane /></button>
             </div>
+        </div>
         </div>
     )
 }

@@ -61,7 +61,8 @@ const Login = () => {
       })
   }
   return (
-    <div className='p-5'>
+    <div className='body-divout'>
+      <div className='body-divin'>
       <div className='my-5 d-flex flex-column justify-content-center align-items-center text-center'>
         <h3>Welcome</h3>
         <small>To</small>
@@ -88,12 +89,13 @@ const Login = () => {
             onClick={() => {
               loginFormik.resetForm();
             }}
-            class="btn btn-secondary"
+            className="btn btn-secondary"
           >Cancel</button>
-          <button type='submit' class="btn btn-primary">Save</button>
+          <button type='submit' className="btn btn-primary">Save</button>
         </div>
         <div className='pointer mt-3' onClick={() => navigate('/register')}>Don't have an account?</div>
       </form>
+      </div>
     </div>
   )
 }
