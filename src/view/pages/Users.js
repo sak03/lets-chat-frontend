@@ -57,7 +57,7 @@ const Users = () => {
     }
     return (
         <div className='mt-3 p-5'>
-            <div className='d-flex justify-content-between border-bottom'>
+            <div className='d-flex bg-white justify-content-between border-bottom px-3 py-2' style={{ position: "fixed", top: "3px", width: "90%" }}>
                 <h3 className='text-info'>Lets Chat</h3>
                 <h5><FaUserAlt /> {loginInfo?.name}</h5>
             </div>

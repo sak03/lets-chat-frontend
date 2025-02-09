@@ -64,7 +64,6 @@ const Register = () => {
                 })
             .then((res) => {
                 const dt = res.data;
-                // console.log("Register: ", dt)
                 navigate('/')
                 console.log("User created successfully");
             })
@@ -76,6 +75,11 @@ const Register = () => {
 
     return (
         <div className='p-5'>
+            <div className='my-5 d-flex flex-column justify-content-center align-items-center text-center'>
+                <h3>Be The Part</h3>
+                <small>of</small>
+                <h3 className='text-info'>Lets Chat</h3>
+            </div>
             <form onSubmit={registerFormik.handleSubmit}>
 
                 <div style={{ display: "flex", marginTop: "20px" }}>
@@ -105,19 +109,10 @@ const Register = () => {
                         className='form-control'
                     />
                 </div>
-                {/* <div style={{ display: "flex", marginTop: "20px" }}>
-                    <select className='form-select' id='role' value={role} onChange={handleSelect}>
-                        <option value="">Select Role</option>
-                        <option value="Admin">Admin</option>
-                        <option value="User">User</option>
-                        <option value="Customer">Customer</option>
-                    </select>
-                </div> */}
                 <div style={{ display: "flex", marginTop: "20px" }}>
                     <button type='button' style={{ marginRight: "20px" }}
                         onClick={() => {
-                            // setViewMode(0)
-                            // setEditMode(0)
+                            navigate('/')
                             registerFormik.resetForm();
                         }}
                         class="btn btn-secondary"

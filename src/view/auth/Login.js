@@ -62,8 +62,13 @@ const Login = () => {
   }
   return (
     <div className='p-5'>
+      <div className='my-5 d-flex flex-column justify-content-center align-items-center text-center'>
+        <h3>Welcome</h3>
+        <small>To</small>
+        <h3 className='text-info'>Lets Chat</h3>
+      </div>
       <form onSubmit={loginFormik.handleSubmit}>
-        <div style={{ display: "flex", marginTop: "20px" }}>
+        <div style={{ marginTop: "20px" }}>
           <input type="text" id='email' value={loginFormik.values.email}
             onChange={loginFormik.handleChange}
             placeholder='Email'
@@ -74,7 +79,7 @@ const Login = () => {
             onChange={loginFormik.handleChange}
             placeholder='Password'
             maxLength={10}
-            className='form-control'
+            className='form-control mt-3'
           />
         </div>
 
